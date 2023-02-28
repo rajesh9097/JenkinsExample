@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      runtime: corretto11
+    commands:
+      - echo install
+  pre_build:
+    commands:
+      - echo pre_build
+  build:
+    commands:
+      - mvn package
+      - echo build
+  post_build:
+    commands:
+      - echo post_build
+reports:
+  report-group-name-or-arn:
+    files:
+      - location
+      - location
+    base-directory: location
+    discard-paths: no | yes
+    file-format: report-format
+artifacts:
+  files:
+    - target/JenkinsExample-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
